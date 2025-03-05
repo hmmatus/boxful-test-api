@@ -1,3 +1,4 @@
+import { createZodDto } from 'nestjs-zod';
 import { z } from 'zod';
 const CreateUserSchema = z.object({
   id: z.number().optional(),
@@ -12,8 +13,7 @@ const LoginUserSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
   password: z.string(),
 });
-
-export type LoginUserDTO = z.infer<typeof LoginUserSchema>;
-export type CreateUserDTO = z.infer<typeof CreateUserSchema>;
-export type UserI = CreateUserDTO;
+export class LoginUserDTO extends createZodDto(LoginUserSchema) {}
+export class CreateUserDTO extends createZodDto(CreateUserSchema) {}
+export class UserI extends CreateUserDTO {}
 export { CreateUserSchema, LoginUserSchema };
