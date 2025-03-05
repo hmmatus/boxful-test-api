@@ -3,7 +3,7 @@ const {
   PORT,
   POSTGRES_DATABASE_URL,
   MONGO_DATABASE_URL,
-  BCRYPT_PASSWORD,
+  JWT_SECRET,
 } = process.env;
 
 export default {
@@ -11,5 +11,5 @@ export default {
   PORT,
   POSTGRES_DATABASE_URL,
   MONGO_DATABASE_URL,
-  BCRYPT_PASSWORD,
+  JWT_SECRET,
 };

@@ -5,6 +5,7 @@ import {
 } from '@/types/schemas/user.schema';
 import { comparePasswords, encodePassword } from '@/utils/bcrypt';
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { Model } from 'mongoose';
 import { USER_MODEL } from 'src/consts/mongo';
 
@@ -13,6 +14,7 @@ export class UsersService {
   constructor(
     @Inject(USER_MODEL)
     private readonly userModel: Model<UserI>,
+    private readonly jwtService: JwtService,
   ) {}
 
   async findAllUSers(): Promise<UserI[]> {
@@ -38,7 +40,10 @@ export class UsersService {
       throw new UnauthorizedException('Invalid password');
     }
     return {
-      jwt: 'test',
+      jwt: await this.jwtService.signAsync({
+        sub: user.id,
+        username: user.email,
+      }),
     };
   }
 }
