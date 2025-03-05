@@ -1,3 +1,4 @@
-const { NODE_ENV, PORT, DATABASE_URL } = process.env;
+const { NODE_ENV, PORT, POSTGRES_DATABASE_URL, MONGO_DATABASE_URL } =
+  process.env;
 
-export default { NODE_ENV, PORT, DATABASE_URL };
+export default { NODE_ENV, PORT, POSTGRES_DATABASE_URL, MONGO_DATABASE_URL };

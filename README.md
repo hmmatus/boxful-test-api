@@ -45,6 +45,13 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## Prisma commands
+```bash
+
+prisma migrate dev --name <migration_name>
+
+```
+
 ## Test
 
 ```bash
