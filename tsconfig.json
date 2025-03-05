@@ -22,7 +22,8 @@
       "@/modules/*": ["src/modules/*"],
       "@/config/*": ["src/config/*"],
       "@/types/*": ["src/types/*"],
-      "@/pipes/*": ["src/pipes/*"]
+      "@/pipes/*": ["src/pipes/*"],
+      "@/utils/*": ["src/utils/*"]
     }
   }
 }
